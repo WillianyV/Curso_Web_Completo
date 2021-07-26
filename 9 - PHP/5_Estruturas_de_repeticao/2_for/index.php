@@ -6,7 +6,9 @@
 </head>
 <body>
     <?php                    
-        $_salada = array("","","");
+        for($_i = 0; $_i <= 6 ; $_i++){
+            echo rand(1,60) . " | ";
+        }
     ?>
 </body>
 </html>
