@@ -1,3 +1,6 @@
+<?php 
+    $_idade = 17;
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,7 +10,7 @@
     </head>
     <body>
         <?php 
-
+            echo "É maior de idade: " . (($_idade>17)? "SIM" : "NÂO");
         ?>
     </body>
 </html>
