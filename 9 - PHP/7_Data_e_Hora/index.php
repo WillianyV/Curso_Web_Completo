@@ -26,7 +26,9 @@
             $_month = strftime('%B');
             $_year = $_time_now["year"];
 
-            echo $_hours . ":" . $_minutes . ":" . $_seconds . " | " . $_mday . "/" . $_month . "/" . $_year;
+            echo $_hours . ":" . $_minutes . ":" . $_seconds . " | " . $_mday . "/" . $_month . "/" . $_year . "<br/><br/>";
+
+            echo strftime('%A') . ", " . $_mday . " de " . $_month . " de " . $_year . "<br/><br/>";
         ?>
     </body>
 </html>
