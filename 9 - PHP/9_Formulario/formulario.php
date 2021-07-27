@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <form action="destino.php" method="get">
+        <form action="destino.php" method="POST">
             <label for="nome">Nome Completo</label>
             <input type="text" name="nome" id="nome">
             
