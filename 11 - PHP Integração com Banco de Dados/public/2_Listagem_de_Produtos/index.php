@@ -1,4 +1,4 @@
-<?php require_once("../../conexao/conexao.php"); ?>
+<?php require_once("../../conexao/connection.php"); ?>
 
 <!doctype html>
 <html>
@@ -12,14 +12,14 @@
     </head>
 
     <body>
-        <?php include_once("../_incluir/topo.php"); ?>
-        <?php include_once("../_incluir/funcoes.php"); ?>
+        <?php include_once("../../_incluir/topo.php"); ?>
+        <?php include_once("../../_incluir/funcoes.php"); ?>
         
         <main>  
             
         </main>
 
-        <?php include_once("../_incluir/rodape.php"); ?> 
+        <?php include_once("../../_incluir/rodape.php"); ?> 
     </body>
 </html>
 
