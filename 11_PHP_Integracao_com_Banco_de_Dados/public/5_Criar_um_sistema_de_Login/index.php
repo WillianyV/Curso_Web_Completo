@@ -1,10 +1,32 @@
 <?php require_once("../../conexao/connection.php"); ?>
 <?php
     //iniciando a sessão
-    session_start();
+    session_start();   
 
-    //criando a varavel de sessão
-    $_SESSION["user"] = "Williany";
+    if(isset($_POST["usuario"]) && isset($_POST["senha"])){
+        $_user = $_POST["usuario"];
+        $_password = $_POST["senha"];
+
+        //query da pesquisa
+        $_query = "SELECT * FROM clientes ";
+        $_query .= " WHERE usuario = '{$_user}' AND senha = '{$_password}'";
+        //pesquisa no banco
+        $_result = mysqli_query($_conexao,$_query);
+        //se deu erro na conecção ao banco de dados morre
+        if(!$_result){
+            die("Falha na consulta do banco de dados");
+        }
+        //se conseguiu se conenctar 
+        $_info = mysqli_fetch_assoc($_result);
+        //testa se veio algum paramentro da busca, ou seja, verifica se existe um user com o login e senha passado, se não a consulta volta vazia
+        if(empty($_info)){
+            $_msg = "Login sem sucesso";        
+        }else{
+            //criando a varavel de sessão
+            $_SESSION["user_portal"] = $_info["clienteID"];
+            header("location:list.php");
+        }
+    }
 
 ?>
 <!doctype html>
@@ -30,9 +52,15 @@
                     <input type="text" name="usuario" placeholder="Login">
                     <input type="password" name="senha" placeholder="Senha">
                     <input type="submit" value="Entrar">
-                </form>
+                    <?php
+                        if(isset($_msg)){
+                    ?>
+                            <p><?php echo $_msg ?></p>
+                    <?php
+                        }
+                    ?>
+                </form>                
             </div>
-            
         </main>
 
         <?php include_once("../_incluir/rodape.php"); ?> 

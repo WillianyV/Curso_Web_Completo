@@ -1,3 +1,11 @@
+<?php
+    //iniciando a sessão
+    session_start();
+    if(!isset($_SESSION["user_portal"])){
+        header("location:index.php");
+    } 
+?>
+
 <?php require_once("../../conexao/connection.php"); ?>
 
 <?php
@@ -11,9 +19,6 @@
         die ("Falha na consulta");
     }
 ?>
-
-
-
 <!doctype html>
 <html>
     <head>

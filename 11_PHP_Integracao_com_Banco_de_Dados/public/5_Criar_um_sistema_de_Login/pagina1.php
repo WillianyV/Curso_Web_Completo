@@ -1,7 +1,10 @@
 <?php require_once("../../conexao/connection.php"); ?>
 <?php
     //iniciando a sessão
-    session_start();
+    session_start(); 
+    if(!isset($_SESSION["user_portal"])){
+        header("location:index.php");
+    }  
 ?>
 <!doctype html>
 <html>
@@ -23,8 +26,8 @@
         <main>
             <div>
                 <?php
-                    if(isset($_SESSION["user"])){
-                        echo $_SESSION["user"];
+                    if(isset($_SESSION["user_portal"])){
+                        echo $_SESSION["user_portal"];
                     }
                 ?>
                 <p><a href="pagina2.php">Pagina 2</a></p>
