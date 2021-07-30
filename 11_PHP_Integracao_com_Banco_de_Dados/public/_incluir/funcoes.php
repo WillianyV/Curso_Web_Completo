@@ -23,7 +23,7 @@
         $_arquivo_nome = basename($arquivo['name']);
         $_dir = "../uploads";
         if(move_uploaded_file($_arquivo_temporario,$_dir."/".$_arquivo_nome)){
-            $_msg = "Arquivo enviado com sucesso";
+            $_msg = "Imagem publicada com sucesso";
         }else{
             $_msg = mostrarAvisoPublicacao($arquivo['error']);            
         }
