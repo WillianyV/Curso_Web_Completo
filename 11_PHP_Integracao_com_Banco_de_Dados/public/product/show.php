@@ -51,6 +51,8 @@
         <?php include_once("../_incluir/funcoes.php"); ?>
         
         <main> 
+            <?php include_once("../_incluir/nav.php"); ?> 
+            
             <div id="detalhe_produto">
                 <ul>
                     <li class="imagem"><img src="../<?php echo $_imagem_grande?>" alt="<?php echo $_nome_produto?>"></li>

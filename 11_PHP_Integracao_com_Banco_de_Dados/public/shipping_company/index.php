@@ -1,8 +1,8 @@
-<?php require_once("../../conexao/conexao.php"); ?>
+<?php require_once("../../conexao/connection.php"); ?>
 <?php
     // tabela de transportadoras
     $tr = "SELECT * FROM transportadoras ";
-    $consulta_tr = mysqli_query($conecta, $tr);
+    $consulta_tr = mysqli_query($_conexao, $tr);
     if(!$consulta_tr) {
         die("erro no banco");
     }
@@ -15,8 +15,8 @@
         <title>Curso PHP Integração com MySQL</title>
         
         <!-- estilo -->
-        <link href="_css/estilo.css" rel="stylesheet">
-        <link href="_css/novo-transportadora.css" rel="stylesheet">
+        <link href="../_css/estilo.css" rel="stylesheet">
+        <link href="../_css/novo-transportadora.css" rel="stylesheet">
     </head>
 
     <body>
@@ -24,8 +24,9 @@
         <?php include_once("../_incluir/funcoes.php"); ?> 
         
         <main>  
+            <?php include_once("../_incluir/nav.php"); ?> 
             <nav>
-                <a href="inserir.php">Inserir Transportadora</a>
+                <a href="create.php">Inserir Transportadora</a>
             </nav>
             
             <div id="janela_transportadoras">
@@ -35,7 +36,7 @@
                 <ul>
                     <li><?php echo $linha["nometransportadora"] ?></li>
                     <li><?php echo $linha["cidade"] ?></li>
-                    <li><a href="alteracao.php?codigo=<?php echo $linha["transportadoraID"] ?>">Alterar</a> </li>
+                    <li><a href="edit.php?codigo=<?php echo $linha["transportadoraID"] ?>">Alterar</a> </li>
                 </ul>
                 <?php
                     }
@@ -49,5 +50,5 @@
 
 <?php
     // Fechar conexao
-    mysqli_close($conecta);
+    mysqli_close($_conexao);
 ?>

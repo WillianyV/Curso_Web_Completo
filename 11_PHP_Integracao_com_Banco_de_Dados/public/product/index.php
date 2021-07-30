@@ -37,6 +37,8 @@
         <?php include_once("../_incluir/funcoes.php"); ?>
         
         <main> 
+            <?php include_once("../_incluir/nav.php"); ?> 
+            
             <div id="janela_pesquisa">
                 <form action="index.php" method="GET">
                     <input type="text" name="produto" placeholder="Pesquise o produto">

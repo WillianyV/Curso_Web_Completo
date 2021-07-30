@@ -45,6 +45,7 @@
     <?php include_once("../_incluir/topo.php"); ?>
     <?php include_once("../_incluir/funcoes.php"); ?>
     <main>
+        <?php include_once("../_incluir/nav.php"); ?> 
         <div id="janela_formulario">
             <form action="create.php" method="POST">
                 <input type="text" name="nometransportadora" placeholder="Nome da transportadora">
