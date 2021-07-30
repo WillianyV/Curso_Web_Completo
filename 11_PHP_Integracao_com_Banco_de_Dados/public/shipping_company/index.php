@@ -16,7 +16,7 @@
         
         <!-- estilo -->
         <link href="../_css/estilo.css" rel="stylesheet">
-        <link href="../_css/novo-transportadora.css" rel="stylesheet">
+        <link href="../_css/novo-alteracao.css" rel="stylesheet">
     </head>
 
     <body>
@@ -37,6 +37,7 @@
                     <li><?php echo $linha["nometransportadora"] ?></li>
                     <li><?php echo $linha["cidade"] ?></li>
                     <li><a href="edit.php?codigo=<?php echo $linha["transportadoraID"] ?>">Alterar</a> </li>
+                    <li><a href="delete.php?codigo=<?php echo $linha["transportadoraID"] ?>">Excluir</a> </li>    
                 </ul>
                 <?php
                     }
