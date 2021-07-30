@@ -16,7 +16,7 @@
         <?php
         }
         ?>
-        <a href="list.php"><img src="../_assets/logo_andes.gif"></a>
+        <a href="../product/"><img src="../_assets/logo_andes.gif"></a>
         <img src="../_assets/text_bnwcoffee.gif"> 
     </div>
 </header>
