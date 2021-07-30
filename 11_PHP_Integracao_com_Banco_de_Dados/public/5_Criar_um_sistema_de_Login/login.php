@@ -47,7 +47,7 @@
         
         <main>
             <div id="janela_login">
-                <form action="index.php" method="POST">
+                <form action="login.php" method="POST">
                     <h2>Tela de Login</h2>
                     <input type="text" name="usuario" placeholder="Login">
                     <input type="password" name="senha" placeholder="Senha">

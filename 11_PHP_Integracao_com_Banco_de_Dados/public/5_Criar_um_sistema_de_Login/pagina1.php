@@ -3,7 +3,7 @@
     //iniciando a sessão
     session_start(); 
     if(!isset($_SESSION["user_portal"])){
-        header("location:index.php");
+        header("location:login.php");
     }  
 ?>
 <!doctype html>
@@ -24,14 +24,6 @@
         <?php include_once("../_incluir/funcoes.php"); ?>
         
         <main>
-            <div>
-                <?php
-                    if(isset($_SESSION["user_portal"])){
-                        echo $_SESSION["user_portal"];
-                    }
-                ?>
-                <p><a href="pagina2.php">Pagina 2</a></p>
-            </div>
             
         </main>
 

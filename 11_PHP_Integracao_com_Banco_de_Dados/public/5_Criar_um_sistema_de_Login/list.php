@@ -1,24 +1,24 @@
-<?php
-    //iniciando a sessão
-    session_start();
-    if(!isset($_SESSION["user_portal"])){
-        header("location:index.php");
-    } 
-?>
-
 <?php require_once("../../conexao/connection.php"); ?>
 
 <?php
+    //iniciando a sessão
+    // session_start();
+    // if(!(isset($_SESSION["user_portal"]))){
+    //     header("location:login.php");
+    // }
+    //Determinar a localidade BR
+    setlocale(LC_ALL, 'pt_BR');
     $_query = "SELECT produtoID, nomeproduto, tempoentrega, precounitario, imagempequena FROM produtos ";
     if(isset($_GET["produto"])){
         $_pesquisa = $_GET["produto"];
         $_query .= " WHERE nomeproduto LIKE '%{$_pesquisa}%' " ;   
     }
-    $_result = mysqli_query($_conexao,$_query);
+    $_result = mysqli_query($_conexao,$_query);    
     if(!$_result){
         die ("Falha na consulta");
     }
 ?>
+
 <!doctype html>
 <html>
     <head>
@@ -38,7 +38,7 @@
         
         <main> 
             <div id="janela_pesquisa">
-                <form action="index.php" method="GET">
+                <form action="list.php" method="GET">
                     <input type="text" name="produto" placeholder="Pesquise o produto">
                     <input type="image" name="pesquisa" src="../_assets/botao_search.png">
                 </form>

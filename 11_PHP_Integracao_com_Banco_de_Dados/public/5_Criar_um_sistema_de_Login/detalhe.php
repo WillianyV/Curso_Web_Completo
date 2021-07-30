@@ -1,10 +1,17 @@
 <?php require_once("../../conexao/connection.php"); ?>
 <?php
+    //iniciando a sessão
+    session_start();
+    if(!isset($_SESSION["user_portal"])){
+        header("location:login.php");
+    }
+    //Determinar a localidade BR
+    setlocale(LC_ALL, 'pt_BR');
     
     if(isset($_GET["codigo"])){
         $produtoID = $_GET["codigo"];
     }else{
-        Header("location: index.php");
+        Header("location: list.php");
     }
     
     $_query = "SELECT * FROM produtos WHERE produtoID = {$produtoID} ";

@@ -4,5 +4,5 @@
 
     unset($_SESSION["user_portal"]);
 
-    header("location:index.php");
+    header("location:login.php");
 ?>
