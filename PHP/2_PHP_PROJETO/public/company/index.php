@@ -1,4 +1,14 @@
-<?php require_once("../../conexao/conexao.php"); ?>
+<?php require_once("../../conexao/connection.php"); ?>
+<?php include_once("../_incluir/funcoes.php"); ?>  
+<?php
+    if(isset($_POST['enviar'])){
+        if(enviarmsg($_POST)){
+            $mensagem = "Msg enviada com sucesso!";
+        }else{
+            $mensagem = "Erro ao enviar menssagem!";
+        }
+    }
+?>
 
 <!doctype html>
 <html>
@@ -7,8 +17,8 @@
         <title>Curso PHP Integração com MySQL</title>
         
         <!-- estilo -->
-        <link href="_css/estilo.css" rel="stylesheet">
-        <link href="_css/contato.css" rel="stylesheet">
+        <link href="../_css/estilo.css" rel="stylesheet">
+        <link href="../_css/contato.css" rel="stylesheet">
     </head>
 
     <body>
@@ -17,7 +27,7 @@
         
         <main> 
             <div id="janela_formulario">
-                <form action="contato.php" method="post">
+                <form action="index.php" method="post">
                     <input type="text" name="nome" placeholder="Digite seu nome">
                     <input type="email" name="email" placeholder="Digite seu email">
                     <label>Mensagem</label>
@@ -39,5 +49,5 @@
 
 <?php
     // Fechar conexao
-    mysqli_close($conecta);
+    mysqli_close($_conexao);
 ?>
