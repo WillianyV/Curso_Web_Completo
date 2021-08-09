@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Solicitacao</title>
+        <script>
+            function carregarDados(){
+                var ajax;
+                if(window.XMLHttpRequest){
+                    ajax = new XMLHttpRequest();
+                }else{
+                    ajax = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                ajax.open('GET','dados.txt',true);
+                console.log(ajax);
+                ajax.onreadystatechange = function(){
+                    if(ajax.status == 200){
+                        if(ajax.readyState == 3){
+                            console.log("Carregando...");
+                        }else if(ajax.readyState == 4){
+                            //passa o response pelo getelementbyid
+                            var elemento = document.getElementById('dinamico');
+                            elemento.innerHTML = ajax.responseText;
+                            //passa o response pelo getelementsbytagname
+                            var titulo = document.getElementsByTagName('h1');
+                            //getElementsByTagName pega um array, pois pode existir varios h1
+                            //então é nescessario passar a possição que quero, nesse caso é a primeira posição '[0]' 
+                            titulo[0].innerHTML = ajax.responseText;
+                        }
+                    }else{
+                        var titulo = document.getElementsByTagName('h1');
+                        titulo[0].innerHTML = "Erro 404: Página não encontrada";
+                    }
+                }            
+                ajax.send();
+            }//end carregarDados            
+        </script>
+    </head>
+
+    <body>
+        <div>
+            <button onclick="carregarDados()" id="botao">carregar informação</button>
+        </div>
+        <div id="dinamico"></div>
+        <h1></h1>
+    </body>
+</html>
