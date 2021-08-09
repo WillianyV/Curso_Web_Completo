@@ -7,19 +7,18 @@
 
     <body>
         <div id="nome"></div>
+        <div id="msg"></div>
         <script src="jquery.js"></script>
         <script>
             $.ajax({
                 url:'nome.php'
-            }).then(sucesso,falha);
-
-            function sucesso(valor){
+            }).done( function (valor){
                 $('#nome').html(valor);
-            }
-
-            function falha(){
-                $('#nome').html("Erro ao caregar o nome");
-            }
+            }).fail(function (){
+                $('#nome').html("Falha ao carregar o nome");
+            }).always(function (){
+                $('#msg').html("Bem vindo!");
+            });
         </script>
     </body>
 </html>

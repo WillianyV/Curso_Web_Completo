@@ -6,6 +6,10 @@
     </head>
 
     <body>
-
+        <div id="curso"></div>
+        <script src="jquery.js"></script>
+        <script>
+            $('#curso').load('dados.txt');
+        </script>
     </body>
 </html>
