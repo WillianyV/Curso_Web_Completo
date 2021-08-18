@@ -18,13 +18,14 @@
             }); 
             
             function carregarDados() {
-                $.getJSON('_json/produtos.json', function(data) {
+                $.getJSON('gerar_json.php', function(data) {
                     var elemento;
 
                     elemento = "<ul>";
                     $.each(data, function(i, valor) {
                         elemento += "<li class='nome'>" + valor.nomeproduto + "</li>"; 
                         elemento += "<li class='preco'>" + valor.precounitario + "</li>"; 
+                        elemento += "<li class='imagem'><img src=" + valor.imagempequena + "></li>"; 
                     });
                     elemento += "</ul>";
 
