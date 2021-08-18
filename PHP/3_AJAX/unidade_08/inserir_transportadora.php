@@ -13,6 +13,18 @@
         $inserir    = "INSERT INTO transportadoras ";
         $inserir    .= "(nometransportadora,endereco,cidade,estadoID) ";
         $inserir    .= "VALUES ";
-        $inserir    .= "('$nome','$endereco','$cidade', $estado)";        
+        $inserir    .= "('$nome','$endereco','$cidade', $estado)";  
+        
+        $operacao_insercao = mysqli_query($conecta,$inserir);
+
+        if($operacao_insercao){
+            $retorn["sucesso"] = true;
+            $retorn["mensagem"] = "Cadastro realizado com sucesso";
+        }else{
+            $retorn["sucesso"] = false;
+            $retorn["mensagem"] = "Falha ao realziar o cadastro";
+        }
+
+        echo json_encode($retorn);
     }
 ?>
